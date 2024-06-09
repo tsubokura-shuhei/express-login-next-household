@@ -1,0 +1,159 @@
+import React, { useContext } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Props, Transaction, Year } from "../../../types/index";
+import {
+  calculateDailyBalances,
+  financeCalculations,
+} from "../../../utils/financeCalculations";
+import { Box, Typography, useTheme } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import { formatYear } from "../../../utils/formatting";
+import { MyContext } from "@/app/layout";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+const BarChartYearIncome = () => {
+  const contents = useContext<Props | undefined>(MyContext);
+  const theme = useTheme();
+
+  //年間の合計(支出)
+  function YearCalculations(yearTransactionsData: Transaction[]): Year {
+    return yearTransactionsData.reduce(
+      (acc, yearTransactionsData) => {
+        if (yearTransactionsData.type === "income") {
+          if (
+            yearTransactionsData.date.slice(0, 4) ===
+            formatYear(contents?.currentYear!)
+          ) {
+            if (yearTransactionsData.date.slice(5, 7) === "01") {
+              acc.January += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "02") {
+              acc.February += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "03") {
+              acc.March += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "04") {
+              acc.April += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "05") {
+              acc.May += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "06") {
+              acc.June += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "07") {
+              acc.July += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "08") {
+              acc.August += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "09") {
+              acc.September += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "10") {
+              acc.October += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "11") {
+              acc.November += yearTransactionsData.amount;
+            }
+            if (yearTransactionsData.date.slice(5, 7) === "12") {
+              acc.Decembe += yearTransactionsData.amount;
+            }
+          }
+        }
+        return acc;
+      },
+      {
+        January: 0,
+        February: 0,
+        March: 0,
+        April: 0,
+        May: 0,
+        June: 0,
+        July: 0,
+        August: 0,
+        September: 0,
+        October: 0,
+        November: 0,
+        Decembe: 0,
+      }
+    );
+  }
+  const yearMonthlyData = YearCalculations(contents?.transaction!);
+
+  // オプション設定
+  const options = {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      // legend: {
+      //   position: "top" as const,
+      // },
+      title: {
+        display: true,
+        text: "年間の収入",
+      },
+    },
+  };
+
+  //日付ごとの収支の算出
+  // const dailyBalances = calculateDailyBalances(yearTransactions);
+  // console.log(dailyBalances);
+
+  //ラベル（日付）を配列へ格納
+  const dateLabels = Object.keys(yearMonthlyData);
+
+  //日付ごとの支出を配列へ格納
+  const incomeData = Object.values(yearMonthlyData);
+
+  //データ設定
+  const data = {
+    labels: dateLabels,
+    datasets: [
+      {
+        label: "収入",
+        data: incomeData,
+        backgroundColor: theme.palette.incomeColor.light,
+      },
+    ],
+  };
+
+  return (
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {contents?.isLoading ? (
+        <CircularProgress />
+      ) : contents?.yearTransactions.length! > 0 ? (
+        <Bar options={options} data={data} />
+      ) : (
+        <Typography>データがありません</Typography>
+      )}
+    </Box>
+  );
+};
+
+export default BarChartYearIncome;
