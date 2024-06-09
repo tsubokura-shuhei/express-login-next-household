@@ -72,7 +72,7 @@ const YearPage = () => {
                   fontWeight={"fontWeightBold"}
                   sx={{
                     wordBreak: "break-word",
-                    fontSize: { xs: ".8rem", sm: "1rem", md: "1.2rem" },
+                    fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
                   }}
                 >
                   {formatCurrency(income)}円
@@ -102,11 +102,7 @@ const YearPage = () => {
                   fontWeight={"fontWeightBold"}
                   sx={{
                     wordBreak: "break-word",
-                    fontSize: {
-                      xs: ".8rem",
-                      sm: "1rem",
-                      md: "1.2rem",
-                    },
+                    fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
                   }}
                 >
                   {formatCurrency(expense)}円
@@ -136,7 +132,7 @@ const YearPage = () => {
                   fontWeight={"fontWeightBold"}
                   sx={{
                     wordBreak: "break-word",
-                    fontSize: { xs: ".8rem", sm: "1rem", md: "1.2rem" },
+                    fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
                   }}
                 >
                   {formatCurrency(balance)}円

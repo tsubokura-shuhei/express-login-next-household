@@ -142,7 +142,12 @@ const CategoryChartYear = () => {
             >
               <CardContent sx={{ padding: { xs: 1, sm: 2 } }}>
                 <Stack direction={"row"}>
-                  <Typography fontWeight="bold">
+                  <Typography
+                    fontWeight="bold"
+                    sx={{
+                      fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
+                    }}
+                  >
                     {contents?.currentMonth.getMonth()! + 1}月の{categoryType}
                     の合計金額
                   </Typography>
@@ -153,7 +158,7 @@ const CategoryChartYear = () => {
                   fontWeight={"fontWeightBold"}
                   sx={{
                     wordBreak: "break-word",
-                    fontSize: { xs: ".8rem", sm: "1rem", md: "1.2rem" },
+                    fontSize: { xs: "1.4rem", sm: "1.6rem", md: "1.8rem" },
                   }}
                 >
                   {/* {formatCurrency(categorySumsYear.categorySum)}円 */}
