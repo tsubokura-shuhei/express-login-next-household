@@ -23,9 +23,9 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  // pages: {
-  //   signIn: "/signin",
-  // },
+  pages: {
+    signIn: "/signin",
+  },
   session: {
     // セッションの有効期間を7日間に設定
     maxAge: 7 * 24 * 60 * 60, // 7日

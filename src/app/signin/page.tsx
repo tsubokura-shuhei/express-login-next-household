@@ -1,4 +1,14 @@
-// "use client";
+"use client";
+
+const SignInPage = () => {
+  return (
+    <>
+      <div>ログイン画面</div>
+    </>
+  );
+};
+
+export default SignInPage;
 
 // import * as React from "react";
 // import Avatar from "@mui/material/Avatar";
