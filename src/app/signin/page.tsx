@@ -30,104 +30,99 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import Image from "next/image";
 
-export default function SignInPage() {
-  const LoginForm = () => {
-    const router = useRouter();
-    const searchParams = useSearchParams();
+const LoginForm = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-    const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
 
-    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-      const callbackUrl = searchParams.get("callbackUrl") || "/";
+    const callbackUrl = searchParams.get("callbackUrl") || "/";
 
-      try {
-        const response = await signIn("credentials", {
-          redirect: false,
-          name,
-          password,
-          callbackUrl,
-        });
-        if (response?.error) {
-          console.log(response.error);
-        } else {
-          router.push(callbackUrl);
-        }
-      } catch (err) {
-        console.log(err);
+    try {
+      const response = await signIn("credentials", {
+        redirect: false,
+        name,
+        password,
+        callbackUrl,
+      });
+      if (response?.error) {
+        console.log(response.error);
+      } else {
+        router.push(callbackUrl);
       }
-    };
-
-    const defaultTheme = createTheme();
-
-    return (
-      <>
-        <ThemeProvider theme={defaultTheme}>
-          <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <Box
-              sx={{
-                marginTop: 8,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                <LockOutlinedIcon />
-              </Avatar>
-              <Typography component="h1" variant="h5">
-                ログイン画面
-              </Typography>
-              <Box
-                component="form"
-                onSubmit={onSubmit}
-                noValidate
-                sx={{ mt: 1 }}
-              >
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="name"
-                  label="名前を入力してください"
-                  name="name"
-                  autoComplete="name"
-                  autoFocus
-                  type="text"
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="パスワードを入力してください"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  ログインする
-                </Button>
-              </Box>
-            </Box>
-          </Container>
-        </ThemeProvider>
-      </>
-    );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
+  const defaultTheme = createTheme();
+
+  return (
+    <>
+      <ThemeProvider theme={defaultTheme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              ログイン画面
+            </Typography>
+            <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="名前を入力してください"
+                name="name"
+                autoComplete="name"
+                autoFocus
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="パスワードを入力してください"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                ログインする
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </ThemeProvider>
+    </>
+  );
+};
+
+export default function SignInPage() {
   return (
     <main>
       <LoginForm />
