@@ -3,11 +3,11 @@
 import React, { useContext } from "react";
 import { MyContext } from "../layout";
 import { Grid, Paper } from "@mui/material";
-import MonthSelector from "../components/monthParts/MonthSelector";
-import CategoryChart from "../components/monthParts/CategoryChart";
-import BarChart from "../components/monthParts/BarChart";
-import { TransactionTable } from "../components/monthParts/TransactionTable";
-import CategoryChartYear from "../components/monthParts/CategoryChartYear";
+import MonthSelector from "../../components/monthParts/MonthSelector";
+import CategoryChart from "../../components/monthParts/CategoryChart";
+import BarChart from "../../components/monthParts/BarChart";
+import { TransactionTable } from "../../components/monthParts/TransactionTable";
+import CategoryChartYear from "../../components/monthParts/CategoryChartYear";
 
 const ReportPage = () => {
   const commonPaperStyle = {

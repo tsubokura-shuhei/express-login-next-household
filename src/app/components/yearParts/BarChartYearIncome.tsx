@@ -17,7 +17,7 @@ import {
 import { Box, Typography, useTheme } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import { formatYear } from "../../../utils/formatting";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 
 ChartJS.register(
   CategoryScale,

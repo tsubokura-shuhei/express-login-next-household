@@ -46,12 +46,12 @@ const SideBar = ({
   const pathnem = usePathname();
 
   const MenuItems: menuItem[] = [
-    { text: "カレンダー", path: "/", icon: CalendarMonthIcon },
-    { text: "月々の合計", path: "/report", icon: EqualizerIcon },
-    { text: "年間の合計", path: "/yearly", icon: ImportContactsIcon },
-    { text: "マイページ", path: "/mypage", icon: LocalFloristIcon },
-    { text: "入力検索", path: "/search", icon: SearchIcon },
-    { text: "エクスポート", path: "/export", icon: FileUploadIcon },
+    { text: "カレンダー", path: "/calendar", icon: CalendarMonthIcon },
+    { text: "月々の合計", path: "/calendar/report", icon: EqualizerIcon },
+    { text: "年間の合計", path: "/calendar/yearly", icon: ImportContactsIcon },
+    { text: "マイページ", path: "/calendar/mypage", icon: LocalFloristIcon },
+    { text: "入力検索", path: "/calendar/search", icon: SearchIcon },
+    { text: "エクスポート", path: "/calendar/export", icon: FileUploadIcon },
   ];
   const baseLinkStyle: CSSProperties = {
     textDecoration: "none",

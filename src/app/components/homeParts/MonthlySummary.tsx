@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 import { Props, Transaction } from "@/types";
 import { financeCalculations } from "@/utils/financeCalculations";
 import { formatCurrency } from "@/utils/formatting";

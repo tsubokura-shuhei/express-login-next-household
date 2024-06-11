@@ -46,7 +46,7 @@ import TungstenIcon from "@mui/icons-material/Tungsten";
 import EvStationIcon from "@mui/icons-material/EvStation";
 import YardIcon from "@mui/icons-material/Yard";
 import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 
 interface CategoryItem {
   label: IncomeCategory | ExpenseCategory;

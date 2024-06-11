@@ -2,7 +2,7 @@
 import { Props } from "@/types";
 import { financeCalculations } from "@/utils/financeCalculations";
 import React, { useContext } from "react";
-import { MyContext } from "../layout";
+import { MyContext } from "@/app/calendar/layout";
 import {
   Card,
   CardContent,
@@ -15,11 +15,11 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { formatCurrency } from "@/utils/formatting";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import YearSelector from "../components/yearParts/YearSelector";
-import BarChartYearIncome from "../components/yearParts/BarChartYearIncome";
-import BarChartYearExpence from "../components/yearParts/BarChartYearExpence";
-import CategoryChartYear from "../components/monthParts/CategoryChartYear";
-import CategoryCardYear from "../components/yearParts/CategoryCardYear";
+import YearSelector from "../../components/yearParts/YearSelector";
+import BarChartYearIncome from "../../components/yearParts/BarChartYearIncome";
+import BarChartYearExpence from "../../components/yearParts/BarChartYearExpence";
+import CategoryChartYear from "../../components/monthParts/CategoryChartYear";
+import CategoryCardYear from "../../components/yearParts/CategoryCardYear";
 
 const YearPage = () => {
   const contents = useContext<Props | undefined>(MyContext);
