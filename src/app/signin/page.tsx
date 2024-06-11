@@ -39,7 +39,9 @@ const LoginForm = () => {
       if (response?.error) {
         console.log(response.error);
       } else {
-        router.push(`${callbackUrl}/?home`);
+        const timestamp = new Date().getTime();
+        const urlWithTimestamp = `${callbackUrl}?t=${timestamp}`;
+        router.push(urlWithTimestamp);
       }
     } catch (err) {
       console.log(err);
