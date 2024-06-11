@@ -28,7 +28,6 @@ const LoginForm = () => {
     event.preventDefault();
 
     const callbackUrl = searchParams.get("callbackUrl") || "/";
-    console.log("推移先URL", callbackUrl);
 
     try {
       const response = await signIn("credentials", {
@@ -42,6 +41,7 @@ const LoginForm = () => {
       } else {
         router.push(callbackUrl);
       }
+      router.push(callbackUrl);
     } catch (err) {
       console.log(err);
     }
