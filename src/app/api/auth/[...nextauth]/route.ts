@@ -27,8 +27,9 @@ const authOptions: NextAuthOptions = {
     signIn: "/signin",
   },
   session: {
+    maxAge: 30 * 24 * 60 * 60, // 30日
     // セッションの有効期間を7日間に設定
-    maxAge: 7 * 24 * 60 * 60, // 7日
+    // maxAge: 7 * 24 * 60 * 60, // 7日
     // セッションの更新頻度を1日ごとに設定
     // updateAge: 24 * 60 * 60 // 1日
   },
