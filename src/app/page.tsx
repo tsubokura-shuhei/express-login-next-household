@@ -12,7 +12,7 @@ import { useContext } from "react";
 
 export default function Home(href: any) {
   const contents = useContext<Props | undefined>(MyContext);
-  console.log(contents?.transaction);
+  // console.log(contents?.transaction);
 
   // console.log(`${href}aa`, "Home");
   const theme = useTheme();

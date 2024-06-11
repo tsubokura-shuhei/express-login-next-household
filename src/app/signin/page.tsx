@@ -28,6 +28,7 @@ const LoginForm = () => {
     event.preventDefault();
 
     const callbackUrl = searchParams.get("callbackUrl") || "/";
+    console.log("推移先URL", callbackUrl);
 
     try {
       const response = await signIn("credentials", {
