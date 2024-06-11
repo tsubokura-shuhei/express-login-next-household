@@ -37,7 +37,7 @@ import Button from "@mui/material/Button";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { formatCurrency } from "../../../utils/formatting";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

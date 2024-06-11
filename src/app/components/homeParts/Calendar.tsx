@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 import { Props, Balance, CalendarContent, Transaction } from "@/types";
 import MainHooks from "@/app/hooks/MainHooks";
 import { useTheme } from "@mui/material";

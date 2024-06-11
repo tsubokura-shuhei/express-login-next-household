@@ -22,7 +22,7 @@ import { Props, Transaction } from "@/types";
 import { financeCalculations } from "@/utils/financeCalculations";
 import { formatCurrency } from "@/utils/formatting";
 import IconComponents from "../common/IconComponents";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 
 interface TransactionTableHeadProps {
   numSelected: number;

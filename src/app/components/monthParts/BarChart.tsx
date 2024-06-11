@@ -19,7 +19,7 @@ import {
   startOfWeek,
 } from "date-fns";
 import { Props, Transaction } from "@/types";
-import { MyContext } from "@/app/layout";
+import { MyContext } from "@/app/calendar/layout";
 
 ChartJS.register(
   CategoryScale,
