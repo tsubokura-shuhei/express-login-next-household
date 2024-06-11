@@ -39,9 +39,8 @@ const LoginForm = () => {
       if (response?.error) {
         console.log(response.error);
       } else {
-        router.push(callbackUrl);
+        router.push(`${callbackUrl}/?home`);
       }
-      router.push(callbackUrl);
     } catch (err) {
       console.log(err);
     }
