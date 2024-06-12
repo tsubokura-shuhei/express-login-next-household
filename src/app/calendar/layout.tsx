@@ -4,8 +4,6 @@ import * as React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "../../theme/theme";
 import {
   AppBar,
   Box,
@@ -52,66 +50,64 @@ export default function RootLayout({
     }
   };
   return (
-    <ThemeProvider theme={theme}>
-      <MyContext.Provider value={contents}>
-        <Box
+    <MyContext.Provider value={contents}>
+      <Box
+        sx={{
+          display: { md: "flex" },
+          bgcolor: grey[100],
+          minHeight: "100vh",
+        }}
+      >
+        <CssBaseline />
+        {/* ヘッダー */}
+        <AppBar
+          position="fixed"
           sx={{
-            display: { md: "flex" },
-            bgcolor: grey[100],
-            minHeight: "100vh",
+            width: { md: `calc(100% - ${drawerWidth}px)` },
+            ml: { md: `${drawerWidth}px` },
           }}
         >
-          <CssBaseline />
-          {/* ヘッダー */}
-          <AppBar
-            position="fixed"
-            sx={{
-              width: { md: `calc(100% - ${drawerWidth}px)` },
-              ml: { md: `${drawerWidth}px` },
-            }}
-          >
-            <Toolbar sx={{ bgcolor: "#8bc34a" }}>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { md: "none" } }}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                style={{ fontWeight: "bold" }}
-              >
-                家計簿アプリ
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          {/* サイドバー */}
-          <SideBar
-            drawerWidth={drawerWidth}
-            mobileOpen={mobileOpen}
-            handleDrawerTransitionEnd={handleDrawerTransitionEnd}
-            handleDrawerClose={handleDrawerClose}
-          />
-          {/* メインコンテンツ */}
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              p: 3,
-              width: { md: `calc(100% - ${drawerWidth}px)` },
-            }}
-          >
-            <Toolbar />
-            {/* <Outlet /> */}
-            <div>{children}</div>
-          </Box>
+          <Toolbar sx={{ bgcolor: "#8bc34a" }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { md: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              style={{ fontWeight: "bold" }}
+            >
+              家計簿アプリ
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        {/* サイドバー */}
+        <SideBar
+          drawerWidth={drawerWidth}
+          mobileOpen={mobileOpen}
+          handleDrawerTransitionEnd={handleDrawerTransitionEnd}
+          handleDrawerClose={handleDrawerClose}
+        />
+        {/* メインコンテンツ */}
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            width: { md: `calc(100% - ${drawerWidth}px)` },
+          }}
+        >
+          <Toolbar />
+          {/* <Outlet /> */}
+          <div>{children}</div>
         </Box>
-      </MyContext.Provider>
-    </ThemeProvider>
+      </Box>
+    </MyContext.Provider>
   );
 }
