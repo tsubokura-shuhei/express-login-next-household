@@ -40,3 +40,12 @@
 #event-balance {
   color: #4caf50;
 }
+
+a.fc-event.fc-event-start {
+  background-color: none !important;
+  border: none !important;
+}
+
+.fc-h-event {
+  background-color: rgb(0 0 0 / 0%) !important;
+}
